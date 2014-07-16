@@ -27,8 +27,8 @@ Session sesion=  HibernateUtilidades.getSessionFactory().openSession();
 
 sesion.getTransaction().begin();
 sesion.save(new Usuario(1, "Juan Carlos",40000f));
-sesion.update(new Usuario(1,"pwedro", 400000f)); 
-
+//sesion.update(new Usuario(1,"pwedro", 400000f)); 
+/*
  Query q= sesion.createQuery("from Usuario");
  
  ArrayList<Usuario> usuarios=(ArrayList<Usuario>)   q.list();
@@ -42,7 +42,7 @@ sesion.update(new Usuario(1,"pwedro", 400000f));
  for(Usuario usu:usuarios2){
      System.out.println(usu); 
  }        c.list();
- 
+ */
 //tres 
 sesion.getTransaction().commit();
 System.out.println("Se inserto adecuadamente");
