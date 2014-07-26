@@ -8,5 +8,7 @@
     <property name="hibernate.connection.username">root</property>
 
    <mapping class="com.campitos.spring.web.Usuario" />
+   <mapping class="com.campitos.spring.web.Alumno" />
+   <mapping class="com.campitos.spring.web.Calificacion" />
   </session-factory>
 </hibernate-configuration>
