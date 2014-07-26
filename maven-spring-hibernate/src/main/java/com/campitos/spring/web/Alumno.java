@@ -51,6 +51,13 @@ public class Alumno implements Serializable {
         this.idAlumno = idAlumno;
     }
 
+    public Alumno(String nombre, String email) {
+        this.nombre = nombre;
+        this.email = email;
+       
+    }
+    
+
     public Alumno(String nombre, String email, List<Calificacion> calificacionList) {
         this.nombre = nombre;
         this.email = email;
