@@ -25,6 +25,22 @@
     });
 
 });
+
+$("#boton1").click(function(){
+    $.ajax({
+        method:'POST',
+        url:"/",
+        success:function(valor){
+            alert(valor)
+        },
+        failure:function(e){
+            alert(e);
+        }
+    });
+});
+
+
+
         </script>
       
         <div></div>
