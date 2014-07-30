@@ -32,9 +32,9 @@ public class DAOAlumnoImpl extends DAO {
         */
     public ArrayList<Alumno> buscarTodosAlumnos() {
         begin();
-      //  Query q = getSession().createQuery("from Usuario");
-        Criteria c=getSession().createCriteria(Alumno.class);
-        ArrayList<Alumno> alumnos = (ArrayList<Alumno>)c.list();
+        Query q = getSession().createQuery("from Alumno");
+      //  Criteria c=getSession().createCriteria(Alumno.class);
+        ArrayList<Alumno> alumnos = (ArrayList<Alumno>)q.list();
         commit();
         close();
          

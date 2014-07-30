@@ -6,6 +6,7 @@
 
 package com.campitos.spring.web;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,14 @@ public class ControladorAlumno {
            DAOAlumnoImpl d= new DAOAlumnoImpl();
            d.agregarAlumno(new Alumno(nombre, email));
            return "Alumno guardado con exito";
+    }
+    
+    @RequestMapping(value="/alumno", method=RequestMethod.GET, headers={"Accept=application/json"})
+    public @ResponseBody String metodo2()throws Exception {
+        DAOAlumnoImpl d=new DAOAlumnoImpl();
+        ObjectMapper maper=new ObjectMapper();
+            
+        return maper.writeValueAsString(d.buscarTodosAlumnos());
     }
 }
 

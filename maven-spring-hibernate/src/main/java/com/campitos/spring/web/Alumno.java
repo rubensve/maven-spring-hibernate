@@ -29,20 +29,25 @@ import javax.validation.constraints.Size;
 
 public class Alumno implements Serializable {
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_alumno")
     private Integer idAlumno;
+    
+    
     @Size(max = 80)
     @Column(name = "nombre")
     private String nombre;
+    
+    
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Size(max = 80)
     @Column(name = "email")
     private String email;
-    @OneToMany(mappedBy = "idAlumno")
-    private List<Calificacion> calificacionList;
+    
+   
 
     public Alumno() {
     }
@@ -58,12 +63,7 @@ public class Alumno implements Serializable {
     }
     
 
-    public Alumno(String nombre, String email, List<Calificacion> calificacionList) {
-        this.nombre = nombre;
-        this.email = email;
-        this.calificacionList = calificacionList;
-    }
-    
+   
 
     public Integer getIdAlumno() {
         return idAlumno;
@@ -89,13 +89,7 @@ public class Alumno implements Serializable {
         this.email = email;
     }
 
-    public List<Calificacion> getCalificacionList() {
-        return calificacionList;
-    }
-
-    public void setCalificacionList(List<Calificacion> calificacionList) {
-        this.calificacionList = calificacionList;
-    }
+ 
 
     @Override
     public int hashCode() {

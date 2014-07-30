@@ -1,4 +1,4 @@
-/*create table usuario (id integer primary key
+create table usuario (id integer primary key
                   auto_increment,
                 nombre varchar(80),
                 sueldo float);
@@ -11,3 +11,5 @@ create table calificacion (id_calificacion integer primary key auto_increment, i
                            examen_final  float, total float,
                            foreign key (id_alumno) references  
                             alumno (id_alumno));
+
+select * from alumno;
