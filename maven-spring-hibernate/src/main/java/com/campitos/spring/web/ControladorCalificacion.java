@@ -25,44 +25,26 @@ public class ControladorCalificacion {
     Creamos el metodo para insertar el alumno
   */   
     
-    @RequestMapping(value="/calificacion/{parcial}/{final}/{total}/{id}", method=RequestMethod.GET, headers={"Accept=text/html"})
-    public @ResponseBody String mensajito(@PathVariable float parcial, @PathVariable float 
-            cfinal,@PathVariable float total, @PathVariable int id ){
-        String mensajito="nada";
-        try{
+    @RequestMapping(value="/calificacion/{parcial}/{cfinal}/{total}/{id}", method=RequestMethod.GET, headers={"Accept=text/html"})
+    public @ResponseBody String mensajito(@PathVariable float parcial, @PathVariable float cfinal,@PathVariable float total, @PathVariable int id ){
+     String mensajito;
+     try{
            DAOCalificacionImpl d= new DAOCalificacionImpl();
-            d.agregarCalificacion(new Calificacion(parcial, cfinal, total,new Alumno(id) ));
-           mensajito= "Calificacion guardado con exito";
-        }catch(Exception  e){
-            mensajito="Lo siento pero lo existe ese id de usuario";
-        }
-        return mensajito;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+            d.agregarCalificacion(new Calificacion( parcial, cfinal, total,new Alumno(id) ));
+       mensajito= "Calificacion guardado con exito";
+       }catch(Exception  e){
+        mensajito="Lo siento pero no existe ese id de usuario";
+       }
+       return mensajito;
+   }
+   
     
     @RequestMapping(value="/calificacion", method=RequestMethod.GET, headers={"Accept=application/json"})
     public @ResponseBody String metodo2()throws Exception {
-        DAOAlumnoImpl d=new DAOAlumnoImpl();
+        DAOCalificacionImpl d=new DAOCalificacionImpl();
         ObjectMapper maper=new ObjectMapper();
             
-        return maper.writeValueAsString(d.buscarTodosAlumnos());
+        return maper.writeValueAsString(d.buscarTodosCalificacion());
     }
 }
 
